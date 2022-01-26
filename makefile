@@ -1,6 +1,6 @@
 CC = g++
-SRC = src/GenesisEngine.cpp src/gfx/Screen.cpp
-OBJ = GenesisEngine.o Screen.o
+SRC = src/GenesisEngine.cpp src/RNG.cpp src/gfx/Screen.cpp
+OBJ = GenesisEngine.o Screen.o RNG.o
 
 LIBFILE = lib/libGenesis.a
 
