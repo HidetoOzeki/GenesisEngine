@@ -1,0 +1,44 @@
+Genesis Engine Beta ver 1.0 
+
+#Genesis Engine for 3d and 2d games. currently in development by HidetoOzeki#
+*DO NOT READ THIS TEXT IF YOUR NOT A DEVELOPER ITS KINDA CRINGE*
+
+#new features to add
+!Serialization for saving progress of games, and for packets
+!audio multiple channels/ stereo 3d
+!2d rendering
+!z-sorting playstation1 style
+!render overray unscaled image for text and ui
+!subpixel rasterization
+!ScreenShotting - Easy to implement with SDL2. do it
+!Event Handler simple inputs- Keyboard/Mouse
+
+!Generate 3d text models from text
+!Batch rendering
+
+!putting camera and switching viewing point**************
+
+#whatever
+!Store TextureBitmap infomation to group of face/vertex
+!render polygon case-based(flat top polygons)
+
+#utility issue
+!add depth buffer and render gray scale *
+
+#optimizations
+
+!check why znear clipping is not increasing performance (when all vertices are behind the camera)
+
+!render static objects (maps, immovable objects) and moving objects(mobs) separately
+
+!remodeling rendering pipeline
+!occlusion/frustum culling 
+!near/far clipping
+
+!avoid adding vertex to vertexbuffer everyframe
+*SOLUTIONS* deep copy vertex buffer and use it to translate/rotate and project
+
+!avoid copying Vertex or Faces in function parameter
+!reduce power consumption
+!reduce cpu usage
+!utilize gpu by using GPGPU api
