@@ -8,5 +8,6 @@ INCLUDE = include
 
 all : $(SRC)
 		$(CC) -c $(SRC) -I $(INCLUDE)
+		mkdir -p lib
 		ar rvs $(LIB) $(OBJ)
 		rm $(OBJ)
