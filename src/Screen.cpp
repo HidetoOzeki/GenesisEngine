@@ -590,6 +590,11 @@ void Screen::tpolygon(Vec v1,Vec v2,Vec v3){
     shown_polygon++;
 }
 
+void Screen::DrawIndexBuffer(int rendermode,int index,int indices){
+    //Draw Geometry from indexbuffer, index offset to specified amount of indices 
+    //perform projection and clipping and rasterizing
+}
+
 void Screen::setFieldOfView(float f){
     if(f<=1)f=1;
     fov = f;

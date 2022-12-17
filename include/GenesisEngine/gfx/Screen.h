@@ -70,6 +70,12 @@ class Screen{
     std::vector<Vec> global_vertices;
     std::vector<Face> global_faces;
 
+    float* VertexBuffer;
+    int VertexBufferSize;
+
+    int* IndexBuffer;
+    int IndexBufferSize;
+
     float z0 = 0;
     float fov = 0;
 
@@ -149,13 +155,31 @@ class Screen{
     void addModel(Model model); //add Model vertices and faces to the scene DONT SPECIFY RENDERMODE HERE
     void add(Vec* v,int mode); // DONT SPECIFY RENDERMODE HERE
 
+    void bindVertexBuffer(float* vb,int size){
+        VertexBuffer = vb; //memory of previous pointer should be freed at some point
+        VertexBufferSize=size;
+    }
+
+    void bindIndexBuffer(int* index,int size){
+        IndexBuffer = index; //memory of previous pointer should be freed at some point
+        VertexBufferSize=size;
+    }
+
+    void bindTexture(Bitmap* tex){
+        texture = tex;
+    }
+
+    void DrawIndexBuffer(int rendermode,int indexoffset,int indices);
+
     //addIndice function : add face information (batch render-able)
 
     /*
 
     batch rendering example (render two colored/textured rectangle with triangle polygons)
 
-    //vertex element order : x,y,z, r,g,b, u,v, textureid;
+    //vertex element order : x,y,z,r,g,b,u,v,
+
+    //storing textureid to every vertex doesnt make sense
 
     float vertices[] = {
         -1.0f ,-1.0f , 1.0f , 255 , 0 , 0,
@@ -169,19 +193,28 @@ class Screen{
         1.0f ,1.0f , 1.0f , 0 , 255 , 0
     }
 
-    screen.add(vertices);
+    screen.bindVertexBuffer(vertices,sizeof(vertices)/sizeof(*vertices));
 
     screen.rotate();
     screen.translate();
 
     int indices[] = {
-        0,1,2,2,3,0, //two quad each row
+        0,1,2,2,3,0, //two triangle each row
         4,5,6,6,7,4
     }
 
-    screen.add(indices);
+    screen.bindIndexBuffer(indices,sizeof(indices)/sizeof(*indices));
 
-    screen.drawScene(RENDERMODE_TRIANGLE); //specify rendermode at draw call
+    screen.DrawIndexBuffer(RENDERMODE_TRIANGLE,0,12); //draw all as triangle
+    screen.DrawIndexBuffer(RENDERMODE_POINT,0,12); //draw all as point
+    screen.DrawIndexBuffer(RENDERMODE_LINE,0,6); //draw 2 triangle as line
+
+    //changing texture
+
+    screen.bindTexture(CrateBox);
+    screen.DrawIndexBuffer(RENDERMODE_TEXTURED_TRIANGLE,0,6); // draw 1 square with bound texture
+    screen.bindTexture(DynamiteBox);
+    screen.DrawIndexBuffer(RENDERMODE_TEXTURED_TRIANGLE,6,6); // draw 1 square with bound texture
 
     */
 
