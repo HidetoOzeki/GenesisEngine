@@ -15,12 +15,21 @@ Bitmap::Bitmap(const char* filename){
     SDL_FreeSurface(image);
     std::cout << "Bitmap image ["<< filename << "] successfully loaded" << std::endl;
 }
+
+Bitmap::Bitmap(int width,int height){
+    w = width;
+    h = height;
+    pixels = new int[w*h];
+    std::cout << "Bitmap image initialized with width and height" << std::endl;
+}
+
 Bitmap::~Bitmap(){
     Bitmap::destroy();
 }
 
 void Bitmap::destroy(){
-    std::cout << "bitmap [" << fn << "] is destroyed" << std::endl;
+    if(!fn.empty())std::cout << "bitmap [" << fn << "] is destroyed" << std::endl;
+    if(fn.empty())std::cout << "bitmap destroyed" << std::endl;
     delete[] pixels;
 }
 int Bitmap::getUV(float u,float v){

@@ -7,6 +7,7 @@ class Bitmap{
     std::string fn;
     int w,h;
     Bitmap(const char*);
+    Bitmap(int width,int height);
     ~Bitmap();
     int getUV(float u,float v);
     int getWidth();
