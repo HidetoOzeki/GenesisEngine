@@ -22,8 +22,8 @@ Genesis Engine Beta ver 1.0
 !Store TextureBitmap infomation to group of face/vertex
 !render polygon case-based(flat top polygons)
 
-#utility issue
-!add depth buffer and render gray scale *
+#graphical Artifacts
+!TopLeft filling rule for gaps between polygons 
 
 #optimizations
 

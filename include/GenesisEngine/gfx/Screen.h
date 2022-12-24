@@ -7,8 +7,6 @@ class Model;
 class Bitmap;
 class Camera;
 
-#define say(x) std::cout << x << std::endl;
-
 struct Colorf{
     float r,g,b;
     float w = 1;
@@ -169,7 +167,7 @@ class Screen{
         texture = tex;
     }
 
-    void DrawIndexBuffer(int rendermode,int indexoffset,int indices);
+    void DrawArrays(int rendermode,int indexoffset,int indices);
 
     //addIndice function : add face information (batch render-able)
 
@@ -205,16 +203,16 @@ class Screen{
 
     screen.bindIndexBuffer(indices,sizeof(indices)/sizeof(*indices));
 
-    screen.DrawIndexBuffer(RENDERMODE_TRIANGLE,0,12); //draw all as triangle
-    screen.DrawIndexBuffer(RENDERMODE_POINT,0,12); //draw all as point
-    screen.DrawIndexBuffer(RENDERMODE_LINE,0,6); //draw 2 triangle as line
+    screen.DrawArrays(RENDERMODE_TRIANGLE,0,12); //draw all as triangle
+    screen.DrawArrays(RENDERMODE_POINT,0,12); //draw all as point
+    screen.DrawArrays(RENDERMODE_LINE,0,6); //draw 2 triangle as line
 
     //changing texture
 
     screen.bindTexture(CrateBox);
-    screen.DrawIndexBuffer(RENDERMODE_TEXTURED_TRIANGLE,0,6); // draw 1 square with bound texture
+    screen.DrawArrays(RENDERMODE_TEXTURED_TRIANGLE,0,6); // draw 1 square with bound texture
     screen.bindTexture(DynamiteBox);
-    screen.DrawIndexBuffer(RENDERMODE_TEXTURED_TRIANGLE,6,6); // draw 1 square with bound texture
+    screen.DrawArrays(RENDERMODE_TEXTURED_TRIANGLE,6,6); // draw 1 square with bound texture
 
     */
 

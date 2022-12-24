@@ -53,12 +53,6 @@ float nround(float v,float n){
 void Vec::round(){
     x=std::roundf(x);
     y=std::roundf(y);
-    //z=std::roundf(z);
-    /*
-    x = (int)(x+0.5f);
-    y = (int)(y+0.5f);
-    z = (int)(z+0.5f);
-    */
 }
 
 void UVcoordf::add(UVcoordf a){
@@ -590,7 +584,7 @@ void Screen::tpolygon(Vec v1,Vec v2,Vec v3){
     shown_polygon++;
 }
 
-void Screen::DrawIndexBuffer(int rendermode,int index,int indices){
+void Screen::DrawArrays(int rendermode,int index,int indices){
     //Draw Geometry from indexbuffer, index offset to specified amount of indices 
     //perform projection and clipping and rasterizing
 }
