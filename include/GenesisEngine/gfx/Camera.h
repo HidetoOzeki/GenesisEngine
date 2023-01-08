@@ -1,24 +1,18 @@
 #ifndef CAMERA_H
 #define CAMERA_H
-#include "Screen.h"
-#include "Model.h"
 
-//static const Model cam_model = Model("res/camera.obj");
+#include "Math.h"
+
 class Camera{
-    
-    Vec position;
-    Vec angle;
     public:
-    Camera(Vec p,Vec a);
-
-    void addCameraToScene(Screen* screen);
-
-    Vec getAngle(){
-        return angle;
-    }
-
-    Vec getPosition(){
-        return position;
+    double FieldOfView;
+    double perspective;
+    Vector3 position;
+    Vector3 angle; //roll pitch yaw
+    Camera(){
+        FieldOfView=90;
+        //perspective = (width/2.0)/(tanf((FieldOfView/2.0)*3.14159265359/180.0));
+        perspective = (tanf((FieldOfView/2.0)*3.14159265359/180.0));
     }
 
 };

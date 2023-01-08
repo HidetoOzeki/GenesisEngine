@@ -238,8 +238,8 @@ void Screen::setCamera(Vec v){
     camera = v;
 }
 void Screen::setCamera(Camera c){
-    camera = c.getPosition();
-    setAngle(c.getAngle());
+    //camera = c.getPosition();
+    //setAngle(c.getAngle());
 }
 
 void Screen::setAngle(Vec angle){

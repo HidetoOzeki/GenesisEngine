@@ -6,11 +6,9 @@
 #include <iostream>
 
 struct VertexBufferObject {
-
     VertexBufferObject(){
         int length = 0;
     }
-
     ~VertexBufferObject(){ 
         delete[] VertexBuffer;
         delete[] Color;
@@ -33,7 +31,6 @@ class Screen3D{
     float* zbuffer;
     Bitmap* texture;
 
-
     public:
     Screen3D(int w,int h,Uint32* fb);
     ~Screen3D(){
@@ -44,11 +41,8 @@ class Screen3D{
     }
 
     void clear(int col);
-
     void put(int x,int y,int col);
-
     VertexBufferObject CreateVBO(int length);
-
     void Triangle(Vector3 v1,Vector3 v2,Vector3 v3);
 };
 
