@@ -4,6 +4,11 @@ Genesis Engine Beta ver 1.0
 *DO NOT READ THIS TEXT IF YOUR NOT A DEVELOPER ITS KINDA CRINGE*
 
 #new features to add
+
+Audio/Music
+Saving System
+Local Networking
+
 !Serialization for saving progress of games, and for packets
 !audio multiple channels/ stereo 3d
 !2d rendering
